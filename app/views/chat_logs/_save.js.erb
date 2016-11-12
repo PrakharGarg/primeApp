@@ -1,0 +1,9 @@
+$("ul.errors").html("");
+<% if @chat_log.errors.any? %>
+  <% @chat_log.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"));
+  <% end %>
+<% else %>
+  $("#chat_logs").html("<%= escape_javascript(render 'index') %>");
+  $("#chat_log-modal").modal("hide");
+<% end %>

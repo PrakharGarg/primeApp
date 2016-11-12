@@ -1,0 +1,10 @@
+<h1>Chat Log</h1>
+<%= link_to 'New Chat log', new_chat_log_path, class: 'btn btn-primary btn-small', remote: true if current_user.can_create?(ChatLog) %>
+<%= render 'index' %>
+
+<div class="modal fade" id="chat_log-modal" tabindex="-1" role="dialog" aria-labelledby="chat_logLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

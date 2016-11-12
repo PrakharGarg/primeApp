@@ -1,0 +1,10 @@
+<h1><%= class_name.titleize %></h1>
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, class: 'btn btn-primary btn-small', remote: true if current_user.can_create?(<%= class_name %>) %>
+<%%= render 'index' %>
+
+<div class="modal fade" id="<%= singular_table_name %>-modal" tabindex="-1" role="dialog" aria-labelledby="<%= singular_table_name %>Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

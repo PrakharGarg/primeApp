@@ -1,0 +1,12 @@
+  <p>
+    <strong>User:</strong>
+    <%= @chat_log.user %>
+  </p>
+
+  <p>
+    <strong>Message:</strong>
+    <%= @chat_log.message %>
+  </p>
+
+<%= link_to 'Edit', edit_chat_log_path(@chat_log), class: 'btn btn-warning btn-small' %>
+<%= link_to 'Back', chat_logs_path, class: 'btn btn-small' %>

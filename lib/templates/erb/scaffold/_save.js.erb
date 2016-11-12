@@ -1,0 +1,9 @@
+$("ul.errors").html("");
+<%% if @<%= singular_table_name %>.errors.any? %>
+  <%% @<%= singular_table_name %>.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%%= message.html_safe %>"));
+  <%% end %>
+<%% else %>
+  $("#<%= plural_table_name %>").html("<%%= escape_javascript(render 'index') %>");
+  $("#<%= singular_table_name %>-modal").modal("hide");
+<%% end %>

@@ -1,0 +1,22 @@
+<table id="<%= plural_table_name %>" class="table table-striped">
+  <thead>
+  <tr>
+    <% attributes.each do |attribute| -%>
+      <th><%= attribute.human_name.titleize %></th>
+    <% end -%>
+    <th colspan="3" width="30%">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr>
+    <% attributes.each do |attribute| -%>
+      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end -%>
+    <td><%%= link_to 'Show', <%= singular_table_name %>, class: 'btn btn-small', remote:true if current_user.can_read?(<%= singular_table_name %>) %></td>
+    <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-warning btn-small', remote:true if current_user.can_update?(<%= singular_table_name %>) %></td>
+    <td><%%= link_to 'Delete', <%= singular_table_name %>_delete_path(<%= singular_table_name %>), class: 'btn btn-danger btn-small', remote:true if current_user.can_delete?(<%= singular_table_name %>) %></td>
+  </tr>
+  <%% end %>
+  </tbody>
+</table>
